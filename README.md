@@ -2,7 +2,7 @@ Mining Libraries' Twitter Accounts
 ==============
 
 
-This repo offers Python code for mining libraries Twitter accounts.
+This repo offers Python code for mining (academic/public) libraries' Twitter accounts.
 
 
 With the code in this repo, Twitter accounts of German public and academic libraries were collected, mined, their tweet archives were harvested and analyzed (early 2014).
