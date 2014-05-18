@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Analyzing the Timeline
+#
 
-# <markdowncell>
 
 # In this Notebook, the timeline of each account is being analyzed:
 # 
@@ -25,11 +21,9 @@
 #    
 # 
 
-# <headingcell level=2>
 
 # Helper Functions
 
-# <codecell>
 
 #from collections import Counter
 #import json
@@ -72,11 +66,9 @@ def exp2CSV(listOfDict, filename):
     dict_writer.writerows(listOfDict)
     f.close()
 
-# <headingcell level=2>
 
 # Function Definition
 
-# <codecell>
 
 def analyzeTimeline(bibTwitterfile,timeStamp):
     '''
@@ -192,30 +184,11 @@ def analyzeTimeline(bibTwitterfile,timeStamp):
     return LoD
         
 
-# <headingcell level=3>
 
-# Function calls
-
-# <codecell>
-
-nattl = analyzeTimeline('NatBibTwitter2.csv', '2014-04-07')
-print len(nattl)
-
-# <codecell>
-
-ubtl = analyzeTimeline('UniBibTwitter2.csv', '2014-04-07')
-print len(ubtl)
-
-# <codecell>
-
-oebtl = analyzeTimeline('OeBibTwitter2.csv', '2014-04-07')
-print len(oebtl)
-
-# <headingcell level=2>
-
+#
 # Controll Functions
+#
 
-# <codecell>
 
 #    
 #control functions to check from which sources a tweet was sent
@@ -250,11 +223,4 @@ def printTweetFromSource(timeline, source):
         if source in timeline[e]['source']:
             print e, timeline[e]['text']
             print
-
-            
-            
-# getting the timeline of an account:
-timeline = readJSON(json-filename)      #  <===== enter the json filename
-tweetSource(timeline)
-printTweetFromSource(timeline, source)
 

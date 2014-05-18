@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Sum up the LibAccount Stats
+#
 
-# <markdowncell>
+
 
 # In this Notebook, the statistics of the library accounts is being summarized. The `libTwitterStats`-function takes as arguments 
 # 
@@ -16,11 +13,10 @@
 #    
 # The file will be saved as NatBib_libTwitterStats_2014-04-09.csv etc.
 
-# <headingcell level=2>
+
 
 # Function Definitions
 
-# <codecell>
 
 import csv
 
@@ -50,7 +46,6 @@ def exp2CSV(listOfDict, filename):
     dict_writer.writerows(listOfDict)
     f.close()
 
-# <codecell>
 
 def libTwitterStats(basicStatsFile, NetWork_datestamp, Friends_datestamp, timelineStats_datestamp):
     # 1. NatBib_BasicStats_2014-03-24.csv
@@ -222,24 +217,3 @@ def libTwitterStats(basicStatsFile, NetWork_datestamp, Friends_datestamp, timeli
     print "The summary was saved as " + libTwitterStatsFilename + "."
     return LoD
     
-    
-
-# <headingcell level=2>
-
-# Function Calls
-
-# <codecell>
-
-NatBib = libTwitterStats('NatBib_BasicStats_2014-04-07.csv', '2014-04-06','2014-04-07','2014-04-09')
-
-# <codecell>
-
-UniBib = libTwitterStats('UniBib_BasicStats_2014-04-07.csv', '2014-04-06','2014-04-06','2014-04-09')
-
-# <codecell>
-
-OeBib = libTwitterStats('OeBib_BasicStats_2014-04-07.csv', '2014-04-06','2014-04-06','2014-04-09')
-
-# <codecell>
-
-

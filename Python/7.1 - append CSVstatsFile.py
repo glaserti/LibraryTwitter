@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Extending the TimelineStatistic
+#
 
-# <markdowncell>
 
 # This Notebook appends the TimelineStatsfile with ReplyStats-file, thus adding the Communication category to the TLstats file, with the keys:
 # 
@@ -19,7 +15,6 @@
 #    
 # 
 
-# <codecell>
 
 import csv
 
@@ -88,7 +83,6 @@ def bisectInLoD(listname, key, value):
     return i_mid
 
 
-# <codecell>
 
 def updateTLSConv(Twitterfile, dateTLS, dateRStats):
 #Twitterfile to get handles
@@ -149,16 +143,4 @@ def updateTLSConv(Twitterfile, dateTLS, dateRStats):
     exp2CSV(workLoD, Twitterfile[:-11])
     
     return workLoD
-
-# <codecell>
-
-NBTLS = updateTLSConv('NatBibTwitter.csv', '2014-04-07', '2014-04-07')
-
-# <codecell>
-
-UBTLS = updateTLSConv('UnibibTwitter.csv', '2014-04-07', '2014-04-08')
-
-# <codecell>
-
-OBTLS = updateTLSConv('OeBibTwitter.csv', '2014-04-07', '2014-04-08')
 

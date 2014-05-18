@@ -1,21 +1,16 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Getting the Tweet Archive
+#
 
-# <markdowncell>
 
 # In this Notebook, the tweet archive for each library is harvested and saved to a json-file as __[screen\_name]\_TimeLine \_[datestamp].json__.
 # 
 # Due to the range limit of the twitter api, only the last 3,200 tweets can be harvested for each screen_name.
 
-# <headingcell level=2>
+
 
 # Harvesting Functions
 
-# <codecell>
 
 # Code from MTSW 2Ed.
 # cf. https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition
@@ -186,11 +181,12 @@ def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_resul
 
 # Save to MongoDB with save_to_mongo or a local file with save_json...
 
-# <headingcell level=2>
 
+
+#
 # Helper & WrapUp Functions
+#
 
-# <codecell>
 
 #import & export CSV
 import csv
@@ -228,23 +224,3 @@ def tweetArchive(Twitterfile):
     for e in f:
         n = e['Twitter']                # get Twitter handel of the library
         saveTimelineAsJSON(n)           # harvesting the archive and saving it as json file
-
-# <headingcell level=2>
-
-# Function Call
-
-# <codecell>
-
-tweetArchive('NatBibTwitter2.csv')
-
-# <codecell>
-
-tweetArchive('UniBibTwitter2.csv')
-
-# <codecell>
-
-tweetArchive('OeBibTwitter2.csv')
-
-# <codecell>
-
-

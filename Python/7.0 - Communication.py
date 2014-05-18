@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <rawcell>
 
 # Gets the Conversation (based on the is reply to Key of the libraries timeline) of each tweet and returns the conversation as a LoD with following keys:
 # 
@@ -14,16 +10,12 @@
 # u'hours_to_answer', u'is_follower', u'original_is_question', u'original_time',
 # u'orphan', u'reply_is_answer', u'reply_time', u'follower_local'
 
-# <headingcell level=2>
 
+#
 # 1. Function Definitions
-
-# <headingcell level=3>
+#
 
 # 1. Authenticating @ Twitter
-
-# <codecell>
-
 
 # All functions from MTSW 2 Ed.
 #
@@ -132,11 +124,9 @@ def make_twitter_request(twitter_api_func, max_errors=10, *args, **kw):
                 print >> sys.stderr, "Too many consecutive errors...bailing out."
                 raise
 
-# <headingcell level=3>
 
 # 2. Helper Functions
 
-# <codecell>
 
 import csv
 
@@ -219,11 +209,10 @@ def bisectInLoD(listname, key, value):
                 i_mid = i_min + (i_max-i_min)/2
     return i_mid
 
-# <headingcell level=3>
+
 
 # 3. Conversation Functions
 
-# <codecell>
 
 def repliedToTweetList(screen_name, timestamp_Timeline, timestamp_Followers):
     '''
@@ -403,11 +392,9 @@ def saveReplyStats(repl,screen_name):
     exp2CSV(lod, screen_name) 
    
 
-# <headingcell level=3>
 
 # 4. Reporting Functions
 
-# <codecell>
 
 
 def reportFollower(rep):
@@ -462,14 +449,12 @@ def reactionReport(rep):
     print "Of these tweets,", quest, "were questions (i.e. a ratio of ", round(float(quest)/(len(rep) - orph),2), "),",
     print         ans, "were answers to questions."
     
-    
-    
+  
 
-# <headingcell level=3>
+#   
+# 2. Wrap Up Function
+#
 
-# 3. Wrap Up Function
-
-# <codecell>
 
 def getConversations(Twitterfile, timestamp_Timeline, timestamp_Followers):
     '''
@@ -486,23 +471,4 @@ def getConversations(Twitterfile, timestamp_Timeline, timestamp_Followers):
     for sn in listOfScreenNames:
         convers = repliedToTweetList(sn, timestamp_Timeline, timestamp_Followers)
         saveReplyStats(convers, sn)
-
-# <headingcell level=2>
-
-# 2. Function Calls
-
-# <codecell>
-
-getConversations('NatBibTwitter2.csv', '2014-04-07', '2014-04-07')
-
-# <codecell>
-
-getConversations('UniBibTwitter.csv', '2014-04-07', '2014-04-06')
-
-# <codecell>
-
-getConversations('OeBibTwitter.csv', '2014-04-07', '2014-04-06')
-
-# <codecell>
-
 
