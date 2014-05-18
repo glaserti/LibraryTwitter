@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <markdowncell>
-
 # The function call of __FnFMining__ wraps up all the helper functions in this Notebook.
 # It's using the IDs harvested in the last Notebook and saved in the NetWork-files to collect data about these IDs.
 # 
@@ -17,7 +12,6 @@
 #    
 # The Friends and Followers files contain List of Dictionaries (LoD) with the keys: friends_description, friends_user_id, friends_location, friends_screen_name, and followers_description, followers_user_id, followers_location, followers_screen_name respectively.
 
-# <codecell>
 
 # Code from MTSW 2Ed.
 # cf. https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition
@@ -44,7 +38,7 @@ def oauth_login():
 # Sample usage
 twitter_api = oauth_login()    
 
-# <codecell>
+
 
 #importing libraries
 import json   #for pretty printing
@@ -93,7 +87,7 @@ def exp2CSV(listOfDict, filename):
     dict_writer.writerows(listOfDict)
     f.close()
 
-# <codecell>
+
 
 # Both functions from MTSW 2 Ed.
 
@@ -207,7 +201,7 @@ def get_user_profile(twitter_api, screen_names=None, user_ids=None):
 
     return items_to_info
 
-# <codecell>
+
 
 def lookUpProfilesFriends(listOfIDs):
     ''' 
@@ -307,7 +301,7 @@ def wrapLookUp(dictOfFnFs):
   
     return LoFilenames
 
-# <codecell>
+
 
 def FnFMining(Twitterfile, datestamp):
     '''
@@ -334,35 +328,3 @@ def FnFMining(Twitterfile, datestamp):
     with open(filename2, 'wb') as f:
         pickle.dump(listOfFilenames, f)
         
-
-# <headingcell level=3>
-
-# Function Calls
-
-# <headingcell level=4>
-
-# National Libraries
-
-# <codecell>
-
-FnFMining('NatBibTwitter2.csv', '2014-04-06')
-
-# <headingcell level=4>
-
-# University Libraries
-
-# <codecell>
-
-FnFMining('UniBibTwitter2.csv', '2014-04-06')
-
-# <headingcell level=4>
-
-# Public Libraries
-
-# <codecell>
-
-FnFMining('OeBibTwitter2.csv', '2014-04-06')
-
-# <codecell>
-
-

@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <markdowncell>
-
 # In this Notebook, the data collected in the previous Notebook will be cleansed and clustered.
 # 
 # The description of each account will be clustered to one of the following categories:
@@ -21,11 +16,10 @@
 #    
 # The `clustering`-function sums up all the other functions in this Notebook. It takes as input the basicStats-Files and the Friends- and Followers-Files and saves the cleansed and clustered information in the same Friends- and Followers-files. Furthermore the function returns a short report with the clustering and the 15 most mentioned locations.
 
-# <headingcell level=3>
+
 
 # Helper Functions
 
-# <codecell>
 
 import csv
 
@@ -64,11 +58,11 @@ def prettyPrint(Sp_1, Sp_2, counted_list_of_tuples):
     ptLang.align[Sp_1], ptLang.align[Sp_2] = 'l', 'r'
     print ptLang
 
-# <headingcell level=2>
+
 
 # Description Clustering Functions
 
-# <codecell>
+
 
 #normalizing the description
 def normalizeDescription(LoD):
@@ -195,11 +189,10 @@ def clusterDescription(LoD):
     return clusteredLoD
 
 
-# <headingcell level=2>
-
+#
 # Location Clustering Functions
+#
 
-# <codecell>
 
 
 def locatingFnFs(LoD):
@@ -361,11 +354,10 @@ def clustering(basicStatsFile,timeStamp):
     if len(errorList) > 0:
         print 'These files could not be accessed:', errorList
 
-# <headingcell level=3>
 
+#
 # Supplementary Functions
-
-# <codecell>
+#
 
 #printing out the description for the 'Varia' for further investigation
 
@@ -377,23 +369,4 @@ def printClusterReport(LoD):
                 print json.dumps(LoD[e]['friends_description'], indent = 1)
             else:
                 print json.dumps(LoD[e]['followers_description'], indent = 1)
-
-# <headingcell level=2>
-
-# Function Calls
-
-# <codecell>
-
-clustering('NatBib_BasicStats_2014-04-06.csv', '2014-04-07')
-
-# <codecell>
-
-clustering('UniBib_BasicStats_2014-04-06.csv', '2014-04-06')
-
-# <codecell>
-
-clustering('OeBib_BasicStats_2014-04-06.csv', '2014-04-06')
-
-# <codecell>
-
 

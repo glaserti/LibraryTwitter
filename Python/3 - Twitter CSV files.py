@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Creating the Twitter CSV files
+#
 
-# <markdowncell>
 
 # Write new csv files with all the libraries with Twitter handles
 # 
@@ -13,11 +9,6 @@
 # - 1 file for university libraries (27 libraries)
 # - 1 file for public libraries (21 libraries)
 
-# <headingcell level=2>
-
-# Functions
-
-# <codecell>
 
 import csv
 import json
@@ -74,29 +65,4 @@ def twiLibCSV(listname, newFilename):
     print
     print json.dumps(LoD_2, indent=1)
     #return LoD_2
-
-# <headingcell level=2>
-
-# Function calls for the three groups
-
-# <codecell>
-
-uniLib = ['DBS_4_UB.csv']
-natLiB = ['DBS_NatBib.csv']
-pubLib = ['DBS_1.csv', 'DBS_2.csv']
-
-# <codecell>
-
-twiLibCSV(natLiB, 'NatBibTwitter.csv')
-
-# <codecell>
-
-twiLibCSV(uniLib, 'UniBibTwitter.csv')
-
-# <codecell>
-
-twiLibCSV(pubLib, 'OeBibTwitter.csv')
-
-# <codecell>
-
 

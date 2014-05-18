@@ -1,11 +1,6 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Scraping website for information about libraries
-
-# <markdowncell>
+#
 
 # For getting information about the libraries, the database of the German Library Statistics (Deutsche Bibliotheksstatistik/DBS) which is hosted by the HBZ was used:
 # 
@@ -47,11 +42,10 @@
 # 
 # Data was collected: 2014-02-08
 
-# <headingcell level=2>
 
+#
 # List of URLs
-
-# <codecell>
+#
 
 # List of tuples of name & url
 # urlList[0] = Nr. 1 (DBS National Libraries)
@@ -66,18 +60,15 @@ urlList = [('DBS_NatBib', 'http://www.bibliotheksstatistik.de/eingabe/dynrep/adr
            ('DBS_2', 'http://www.bibliotheksstatistik.de/eingabe/dynrep/adrbrowser/adrbrowser.php?prt=AF111|MB026|GB291|AH259|GC556|KA119|KA129|GD895|AJ367|AF238|AD242|AD072|AG243|GY440|AA186|AB063|AH181|AD369|AC134|AF135|GE231|KS124|AL285|AF196|KQ152|AK116|AG279|AE295|AD217|GD822|AK153|GM675|AG267|AK293|AC286|AB178|AF275|AJ033|AL157|AC122|AJ471|WB861|LD510|GC283|AD059|MB038|AA174|AG371|AG231|LC499|LC505|AJ069|AG073|GB850|WB782|MB014|AH260|AH168|GC301|AJ264|GD998|GE012|GE036|MB002|GD767|AD163|AH351|AC262|GA444|GE462|GB746|AA472|GE899|AH247|AA447|AB270|GE164|GA596|AH284|AF470|AB142|AD229|JA868')]
 
 
-# <headingcell level=2>
-
+#
 # Functions
-
-# <codecell>
+#
 
 from bs4 import BeautifulSoup
 import urllib2
 import json
 import csv
 
-# <codecell>
 
 def writeDict(bsString):
     
@@ -169,122 +160,4 @@ def exp2CSV(listOfDict, filename):
     dict_writer.writerows(listOfDict)
     f.close()
 
-# <headingcell level=2>
-
-# Function call for each group of libraries
-
-# <codecell>
-
-# pass in the index nr. of the urlList!
-libCSV(0)
-
-# <codecell>
-
-# pass in the index nr. of the urlList!
-libCSV(1)
-
-# <codecell>
-
-# pass in the index nr. of the urlList!
-libCSV(2)
-
-# <codecell>
-
-# pass in the index nr. of the urlList!
-libCSV(3)
-
-# <headingcell level=2>
-
-# Output of the function calls
-
-# <markdowncell>
-
-# For archival reasons, the output of the function calls is saved here as text:
-
-# <rawcell>
-
-# [0]
-# 
-# For DBS_NatBib 3 (active) libraries could be found.
-# 
-# =======================================
-# 
-# The csv will be safed as DBS_NatBib.csv
-# 
-# 
-# [1]
-# 
-# For DBS_4_UB 83 (active) libraries could be found.
-# For this library no URL could be found: 
-# 
-# {
-#  "URL": "", 
-#  "Ort": "Koblenz-Landau", 
-#  "DBS-ID": "BD987", 
-#  "Name": "Koblenz-Landau UB", 
-#  "Twitter": ""
-# } 
-# 
-# 
-# =====================================
-# 
-# The csv will be safed as DBS_4_UB.csv
-# 
-# 
-# [2]
-# 
-# For DBS_1 16 (active) libraries could be found.
-# 
-# ==================================
-# 
-# The csv will be safed as DBS_1.csv
-# 
-# 
-# [3]
-# 
-# For DBS_2 83 (active) libraries could be found.
-# For this library no URL could be found: 
-# 
-# {
-#  "URL": "", 
-#  "Ort": "Berlin", 
-#  "DBS-ID": "MB026", 
-#  "Name": "Berlin Pankow StB", 
-#  "Twitter": ""
-# } 
-# 
-# For this library no URL could be found: 
-# 
-# {
-#  "URL": "", 
-#  "Ort": "Kassel", 
-#  "DBS-ID": "KA119", 
-#  "Name": "Kassel KuJB", 
-#  "Twitter": ""
-# } 
-# 
-# For this library no URL could be found: 
-# 
-# {
-#  "URL": "", 
-#  "Ort": "Kassel", 
-#  "DBS-ID": "KA129", 
-#  "Name": "Kassel KuJB", 
-#  "Twitter": ""
-# } 
-# 
-# For this library no URL could be found: 
-# 
-# {
-#  "URL": "", 
-#  "Ort": "Mainz", 
-#  "DBS-ID": "GY440", 
-#  "Name": "Mainz StB", 
-#  "Twitter": ""
-# } 
-# 
-# 
-# ==================================
-# 
-# The csv will be safed as DBS_2.csv
 

@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=2>
-
+#
 # Authentication
+#
 
-# <codecell>
 
 # Code from MTSW 2Ed.
 # cf. https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition
@@ -166,11 +162,12 @@ def get_friends_followers_ids(twitter_api, screen_name=None, user_id=None,
     # Do something useful with the IDs, like store them to disk...
     return friends_ids[:friends_limit], followers_ids[:followers_limit]
 
-# <headingcell level=2>
 
+
+#
 # Helper Functions
+# 
 
-# <codecell>
 
 #importing libraries
 import json   #for pretty printing
@@ -209,15 +206,11 @@ def exp2CSV(listOfDict, filename):
     dict_writer.writerows(listOfDict)
     f.close()
 
-# <headingcell level=2>
 
 # 1. Analyzing the Library's Network
 
-# <headingcell level=3>
-
 # 1.2. Getting & Calculating Intersection & Differences: are they following back?
 
-# <codecell>
 
 # getting Friends & Followers
 
@@ -253,7 +246,7 @@ def getFnFs(screen_name):
     FnFdict['followBack'] = list(FnFdict['followBack'])
     return FnFdict
 
-# <codecell>
+
 
 
 def wrapUp(csvFile):
@@ -302,35 +295,3 @@ def wrapUp(csvFile):
         print
         print 50*'='
     
-
-# <headingcell level=3>
-
-# Function call
-
-# <headingcell level=4>
-
-# National Libraries
-
-# <codecell>
-
-wrapUp('NatBib_BasicStats_2014-04-06.csv')
-
-# <headingcell level=4>
-
-# University Libraries
-
-# <codecell>
-
-wrapUp('UniBib_BasicStats_2014-04-06.csv')
-
-# <headingcell level=4>
-
-# Public Libraries
-
-# <codecell>
-
-wrapUp('OeBib_BasicStats_2014-04-06.csv')
-
-# <codecell>
-
-

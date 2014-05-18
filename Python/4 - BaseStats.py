@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <headingcell level=1>
-
+#
 # Basic Statistics on the Twitter Accounts
+#
 
-# <markdowncell>
 
 # In this section, some basic statistics for the Twitter Accounts of the given groups of libraries (i.e. National libraries, University libraries, Public libraries) will be collected.
 # 
@@ -36,11 +32,9 @@
 # - a summary for each library.
 # 
 
-# <headingcell level=2>
-
+#
 # Function definitions
-
-# <codecell>
+#
 
 # authenticating @ Twitter
 
@@ -68,9 +62,7 @@ auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
                                CONSUMER_KEY, CONSUMER_SECRET)
 twitter_api = twitter.Twitter(auth=auth)
 
-    
 
-# <codecell>
 
 #import & export CSV
 import csv
@@ -104,13 +96,12 @@ def exp2CSV(listOfDict, filename):
     dict_writer.writerows(listOfDict)
     f.close()
 
-# <codecell>
 
-###################################
-#                                 #
-#  Functions for the Data Mining  #
-#                                 #
-###################################
+
+
+#
+#  Functions for the Data Mining 
+#
 
 
 #importing libraries
@@ -230,11 +221,9 @@ def baseStats(AccountInfoList):
 
 
 
-########################################
-#                                      #
-#  Function for the reporting section  #
-#                                      #
-########################################
+#
+#  Function for the reporting section 
+#
 
 
 #return the median of Tweets per Day
@@ -308,15 +297,10 @@ def printSummary(dictList):
         print
 
 
-# <headingcell level=2>
-
-# Requesting Data
-
-# <headingcell level=3>
-
+#
 # 1. National Libraries
+#
 
-# <codecell>
 
 # 1: get the list of screennames
 # ==> insert csv-name  !!
@@ -334,11 +318,11 @@ NatBib_baseStatsList = baseStats(NatBib_accountInfoList)
 exp2CSV(NatBib_baseStatsList, 'NatBib_BasicStats.csv')
 print 'The findings were saved as a CSV file to your cwd as NatBib_BasicStats_[current datestamp].csv'
 
-# <headingcell level=3>
 
+#
 # 2. University Libraries
+#
 
-# <codecell>
 
 # 1: get the list of screennames
 # ==> insert csv-name  !!
@@ -356,11 +340,11 @@ UniBib_baseStatsList = baseStats(UniBib_accountInfoList)
 exp2CSV(UniBib_baseStatsList, 'UniBib_BasicStats.csv')
 print 'The findings were saved as a CSV file to your cwd as UniBib_BasicStats_[current datestamp].csv.'
 
-# <headingcell level=3>
 
+#
 # 3. Public Libraries
+# 
 
-# <codecell>
 
 # 1: get the list of screennames
 # ==> insert csv-name  !!
@@ -379,15 +363,13 @@ exp2CSV(OeBib_baseStatsList, 'OeBib_BasicStats.csv')
 print 'The findings were saved as a CSV file to your cwd as OeBib_BasicStats_[current datestamp].csv.'
 
 
-# <headingcell level=2>
-
+#
 # Report
+#
 
-# <headingcell level=4>
 
 # National Libraries
 
-# <codecell>
 
 NatBib_median = medianOfTPD(NatBib_baseStatsList)
 
@@ -412,11 +394,9 @@ print
 printSummary(NatBib_dateSortList)
 
 
-# <headingcell level=4>
 
 # University Libraries
 
-# <codecell>
 
 UniBib_median = medianOfTPD(UniBib_baseStatsList)
 
@@ -442,11 +422,9 @@ print
 printSummary(UniBib_dateSortList)
 
 
-# <headingcell level=4>
 
 # Public Libraries
 
-# <codecell>
 
 OeBib_median = medianOfTPD(OeBib_baseStatsList)
 
@@ -470,8 +448,4 @@ print 'Lousiest Tweeter:', OeBib_tweetSortList[0]['screen_name'], 'with', OeBib_
 print 'SocialMedia Addict:', OeBib_tweetSortList[-1]['screen_name'], 'with', OeBib_tweetSortList[-1]['statuses_count'], 'Tweets.' 
 print
 printSummary(OeBib_dateSortList)
-
-
-# <codecell>
-
 
